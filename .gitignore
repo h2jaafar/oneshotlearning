@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+dataset/lfw2/weights/
+dataset/lfw2/lfw2/
+dataset/lfwa.zip
+dataset/lfw2/train.pickle
+dataset/lfw2/test.pickle
