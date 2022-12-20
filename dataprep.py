@@ -8,12 +8,13 @@ import numpy as np
 
 
 class PreProcessData(object):
-  def __init__(self, img_width, img_height, img_cells, input_path, output_path):
+  def __init__(self, config, img_width, img_height, img_cells, input_path, output_path):
     self.img_width = img_width
     self.img_height = img_height
     self.img_cells = img_cells
     self.input_path = input_path
     self.output_path = output_path
+    self.config = config
 
   def _open_image(self, path):
     img = Image.open(path)
@@ -128,6 +129,7 @@ class PreProcessData(object):
             x_first.append(first_image)
             x_second.append(second_image)
             y.append(0)
+        
         elif len(line) == 3:  # Class 1 - identical
             names.append(line)
             person_name, first_image_num, second_image_num = line[0], line[1], line[2]
@@ -144,9 +146,12 @@ class PreProcessData(object):
             print(f'line with a single value: {line}')
     print('Done loading dataset')
     lfw_data = [[x_first, x_second], y, names]
-    x_yft_first, x_yft_second, y_yft, names_yft = self.open_ytf(set_name=set_name)
-    combined_data = [[x_first+x_yft_first, x_second+x_yft_second], y + y_yft, names + names_yft]
+    if self.config['ytf']:
+      x_yft_first, x_yft_second, y_yft, names_yft = self.open_ytf(set_name=set_name)
+      combined_data = [[x_first+x_yft_first, x_second+x_yft_second], y + y_yft, names + names_yft]
+    else:
+      combined_data = lfw_data
     with open(self.output_path, 'wb') as f:
-        pickle.dump(combined_data, f)
+      pickle.dump(combined_data, f)
 
 print("Loaded all data")

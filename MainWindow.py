@@ -23,6 +23,8 @@ class MainWindow:
         "final activation": "sigmoid",
         "savePath": "./dataset/",
         "load_data": False,
+        "analyze": False,
+        "ytf": True,
 
     }
 
@@ -56,6 +58,9 @@ class MainWindow:
         self.configurationParameters["final activation"] = dpg.get_value("final activation") 
         self.configurationParameters["savePath"] = dpg.get_value("savePath") 
         self.configurationParameters["load_data"] = dpg.get_value("load_data") 
+        self.configurationParameters["analyze"] = dpg.get_value("anaylze") 
+        self.configurationParameters["ytf"] = dpg.get_value("ytf") 
+
         mr = MainRunner(configs=self.configurationParameters)
         print("Initialized Network")
 
@@ -95,8 +100,11 @@ class MainWindow:
             dpg.add_input_float(label="learn rate", default_value=0.00005, width = 128, step=0.00001, format="%.5f", tag="lr")
             dpg.add_combo(items=(["relu","leaky-relu", "sigmoid"]), label="conv activation", default_value="leaky-relu", width = 128, tag="conv activation")
             dpg.add_combo(items=(["sigmoid"]), label="final layer activation", default_value="sigmoid", width = 128, tag="final activation")
+            dpg.add_checkbox(label="Include YoutubeFaces dataset", default_value=False, tag="ytf")
             dpg.add_checkbox(label="reload data", default_value=False, tag="load_data")
             dpg.add_input_text(label="training file name", default_value="train_10", tag="savePath")
+            dpg.add_checkbox(label="analyze after", default_value=False, tag="analyze")
+
 
             # assign values
 

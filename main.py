@@ -69,14 +69,14 @@ class MainRunner:
         train_path = os.path.join(data_path, f'{train_name}.{data_set_save_type}')  # A path for the train file
         test_path = os.path.join(data_path, f'{test_name}.{data_set_save_type}')  # A path for the test file
         if self.bLoadData:  # If the training data already exists
-            loader = PreProcessData(img_width=WIDTH, img_height=HEIGHT, img_cells=CELLS, input_path=data_path, output_path=train_path)
+            loader = PreProcessData(config=self.config,img_width=WIDTH, img_height=HEIGHT, img_cells=CELLS, input_path=data_path, output_path=train_path)
             # loader.open_ytf()
             loader.load(set_name=train_name)
-            loader = PreProcessData(img_width=WIDTH, img_height=HEIGHT, img_cells=CELLS, input_path=data_path, output_path=test_path)
+            loader = PreProcessData(config=self.config, img_width=WIDTH, img_height=HEIGHT, img_cells=CELLS, input_path=data_path, output_path=test_path)
             loader.load(set_name=test_name)
 
         result_path = os.path.join(data_path, f'results.csv')  # A path for the train file
-        results = {'lr': [], 'batch_size': [], 'epochs': [], 'patience': [], 'min_delta': [], 'seed': [], 'loss': [],'conv act':[],
+        results = {'lr': [], 'batch_size': [], 'epochs': [], 'patience': [], 'min_delta': [], 'seed': [],'conv act':[], 'ytf':[self.config["ytf"]], 'loss': [],
                 'accuracy': []}
         for l in self.lr:
             for bs in self.batch_size:

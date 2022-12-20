@@ -23,6 +23,7 @@ class SiameseNN(object):
         self.bLeakyRelu = False
         if self.config['conv activation'] == 'leaky-relu':
             self.bLeakyRelu=True
+        self.bAnalyze=self.config['analyze']
 
         # Define the matrices for the input images
         input_shape = (img_width, img_height, img_cells)
@@ -197,7 +198,7 @@ class SiameseNN(object):
       print(f'Loss on Validation set: {loss}')
       print(f'Accuracy on Validation set: {accuracy}')
 
-  def evaluate(self, test_file, batch_size, analyze=False):
+  def evaluate(self, test_file, batch_size):
       """
       Function for evaluating the final model after training.
       test_file - file path to the test file.
@@ -213,7 +214,7 @@ class SiameseNN(object):
       x_test[1] = np.array(x_test[1], dtype='float64')
       # evaluate on the test set
       loss, accuracy = self.siamese_net.evaluate(x_test, y_test, batch_size=batch_size)
-      if analyze:
+      if self.bAnalyze:
           self._analyze(x_test, y_test, names)
       return loss, accuracy
 
@@ -258,7 +259,6 @@ class SiameseNN(object):
       print(f'misclassification for different people, y=0, prediction->1, name: {worst_class_0_name} | prob: {worst_class_0_prob}')
       print(f'correct classification for same people, y=1, prediction->1, name: {best_class_1_name} | prob: {best_class_1_prob}')
       print(f'misclassification for same people, y=1, prediction->0, name: {worst_class_1_name} | prob: {worst_class_1_prob}')
-
 
 print("Loaded Siamese Network")
 
