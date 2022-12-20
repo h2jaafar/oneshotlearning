@@ -18,7 +18,7 @@ class MainWindow:
         "Layers_E": 0,
         "epochs": 10,
         "batch_size": 32,
-        "lr": 0.0005,
+        "lr": 0.00005,
         "conv activation": "relu",
         "final activation": "sigmoid",
         "savePath": "./dataset/",
