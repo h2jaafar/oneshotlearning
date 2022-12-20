@@ -93,8 +93,8 @@ class MainWindow:
             dpg.add_input_int(label="epochs", default_value=10, width = 128, tag="epochs")
             dpg.add_input_int(label="batch size", default_value=32, width = 128, tag="batch_size")
             dpg.add_input_float(label="learn rate", default_value=0.00005, width = 128, step=0.00001, format="%.5f", tag="lr")
-            dpg.add_combo(items=(["relu","leaky-relu", "sigmoid", "adam"]), label="conv activation", default_value="relu", width = 128, tag="conv activation")
-            dpg.add_combo(items=(["sigmoid", "adam"]), label="final layer activation", default_value="sigmoid", width = 128, tag="final activation")
+            dpg.add_combo(items=(["relu","leaky-relu", "sigmoid"]), label="conv activation", default_value="leaky-relu", width = 128, tag="conv activation")
+            dpg.add_combo(items=(["sigmoid"]), label="final layer activation", default_value="sigmoid", width = 128, tag="final activation")
             dpg.add_checkbox(label="reload data", default_value=False, tag="load_data")
             dpg.add_input_text(label="training file name", default_value="train_10", tag="savePath")
 

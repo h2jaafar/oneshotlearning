@@ -41,8 +41,9 @@ class MainRunner:
         model_save_type = 'h5'
         # files paths
         self.initialize_seed(seed=seed)
+        ca = self.config['conv activation']
         parameters_name = f'seed_{seed}_lr_{l}_bs_{bs}_ep_{ep}_val_{validation_size}_' \
-                        f'es_{early_stopping}_pa_{pat}_md_{md}'
+                        f'es_{early_stopping}_pa_{pat}_md_{md}_conv_act_{ca}'
         print(f'Running combination with {parameters_name}')
         # A path for the weights
         load_weights_path = os.path.join(data_path, 'weights', f'weights_{parameters_name}.{model_save_type}')
@@ -74,7 +75,7 @@ class MainRunner:
             loader.load(set_name=test_name)
 
         result_path = os.path.join(data_path, f'results.csv')  # A path for the train file
-        results = {'lr': [], 'batch_size': [], 'epochs': [], 'patience': [], 'min_delta': [], 'seed': [], 'loss': [],
+        results = {'lr': [], 'batch_size': [], 'epochs': [], 'patience': [], 'min_delta': [], 'seed': [], 'loss': [],'conv act':[],
                 'accuracy': []}
         for l in self.lr:
             for bs in self.batch_size:
@@ -91,6 +92,7 @@ class MainRunner:
                                 results['min_delta'].append(md)
                                 results['seed'].append(seed)
                                 results['loss'].append(loss)
+                                results['conv act'].append(self.config['conv activation'])
                                 results['accuracy'].append(accuracy)
         df_results = pd.DataFrame.from_dict(results)
         with open(result_path, 'a') as f:
