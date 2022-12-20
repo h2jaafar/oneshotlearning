@@ -70,6 +70,7 @@ class MainRunner:
         test_path = os.path.join(data_path, f'{test_name}.{data_set_save_type}')  # A path for the test file
         if self.bLoadData:  # If the training data already exists
             loader = PreProcessData(img_width=WIDTH, img_height=HEIGHT, img_cells=CELLS, input_path=data_path, output_path=train_path)
+            # loader.open_ytf()
             loader.load(set_name=train_name)
             loader = PreProcessData(img_width=WIDTH, img_height=HEIGHT, img_cells=CELLS, input_path=data_path, output_path=test_path)
             loader.load(set_name=test_name)

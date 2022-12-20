@@ -133,3 +133,8 @@ dataset/lfw2/lfw2/
 dataset/lfwa.zip
 dataset/lfw2/train.pickle
 dataset/lfw2/test.pickle
+dataset/ytf/ytf/
+dataset/ytf/ytf_split/test/
+dataset/ytf/ytf_split/train/
+dataset/ytf/ytf_split/val/
+dataset/ytf/aligned_images_DB.tar.gz
