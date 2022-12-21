@@ -6,6 +6,7 @@ The project uses a deep siamese neural network pair to perform face recognition.
 
 <img src="docs/classes_annotated.png" alt="drawing" width="500"/>
 
+- Note: latest results have not been  uploaded to github yet. Do not use the "results.csv" file as a reference. 
 ## Quick Start
 
 Clone this repository, using
@@ -50,7 +51,6 @@ dataset
 ```
 
 For questions or concerns, please open an Issue on GitHub. 
-
 ## Credits
 - Original paper is [Gregory Koch, Richard Zemel, Ruslan Salakhutdinov](https://www.cs.cmu.edu/~rsalakhu/papers/oneshot1.pdf)
 - Some of the network code used is from [Nevoit](https://github.com/nevoit/Siamese-Neural-Networks-for-One-shot-Image-Recognition
