@@ -71,7 +71,7 @@ class MainWindow:
         dpg.setup_dearpygui()
 
 
-        width, height, channels, data = dpg.load_image("./docs/architecture.png")
+        width, height, channels, data = dpg.load_image("./docs/architecture_small.png")
 
         with dpg.texture_registry(show=False):
             dpg.add_static_texture(width=width, height=height, default_value=data, tag="texture_tag")
