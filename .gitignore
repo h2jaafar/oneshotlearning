@@ -139,3 +139,4 @@ dataset/ytf/ytf_split/train/
 dataset/ytf/ytf_split/val/
 dataset/ytf/aligned_images_DB.tar.gz
 dataset/ytf/ytf_split.tar.gz
+dataset/ytf_split.tar.gz

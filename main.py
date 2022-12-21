@@ -53,7 +53,7 @@ class MainRunner:
         siamese.fit(weights_file=load_weights_path, train_path=train_path, validation_size=validation_size,
                     batch_size=bs, epochs=ep, early_stopping=early_stopping, patience=pat,
                     min_delta=md)
-        loss, accuracy = siamese.evaluate(test_file=test_path, batch_size=bs, analyze=True)
+        loss, accuracy = siamese.evaluate(test_file=test_path, batch_size=bs)
         print(f'Loss on Testing set: {loss}')
         print(f'Accuracy on Testing set: {accuracy}')
         # predict_pairs(model)

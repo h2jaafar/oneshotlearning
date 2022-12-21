@@ -227,6 +227,7 @@ class SiameseNN(object):
       - Two people with the most dissimilar images, and
       - The two people with the most similar images.
       """
+      print("analyzer setup")
       best_class_0_prob = 1  # correct classification for different people, y=0, prediction->0
       best_class_0_name = None
       worst_class_0_prob = 0  # misclassification for different people, y=0, prediction->1

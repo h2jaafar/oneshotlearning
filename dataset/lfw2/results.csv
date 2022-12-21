@@ -16,3 +16,7 @@
 0,7.000000186963007e-05,32,10,5,0.1,0,1.2340919971466064,leaky-relu,0.6579999923706055
 ,lr,batch_size,epochs,patience,min_delta,seed,loss,conv act,accuracy
 0,4.999999873689376e-05,16,10,5,0.1,0,1.1870189905166626,leaky-relu,0.6430000066757202
+,lr,batch_size,epochs,patience,min_delta,seed,conv act,ytf,loss,accuracy
+0,4.999999873689376e-05,32,11,5,0.1,0,leaky-relu,False,0.9033655524253845,0.7778043150901794
+,lr,batch_size,epochs,patience,min_delta,seed,conv act,ytf,loss,accuracy
+0,4.999999873689376e-05,32,11,5,0.1,0,leaky-relu,False,0.9033655524253845,0.7778043150901794
