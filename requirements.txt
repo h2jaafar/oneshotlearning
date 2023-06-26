@@ -140,7 +140,7 @@ tensorflow-io-gcs-filesystem==0.28.0
 termcolor==2.1.1
 threadpoolctl==3.1.0
 topic-monitor==0.9.4
-tornado==6.2
+tornado==6.3.2
 tqdm==4.64.1
 traitlets==5.7.1
 turtlebot3-example==2.1.1
